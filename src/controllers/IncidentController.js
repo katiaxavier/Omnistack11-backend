@@ -37,7 +37,7 @@ module.exports = {
 
     async delete(req, res) {
         const { id } = req.params;
-        const ond_id = req.headers.authorization;
+        const ong_id = req.headers.authorization;
 
         const incident = await connection('incidents')
             .where('id', id)
@@ -50,6 +50,6 @@ module.exports = {
 
         await connection('incidents').where('id', id).delete();
 
-        return Response.status(204).send();
+        return res.status(204).send();
     }
 };
